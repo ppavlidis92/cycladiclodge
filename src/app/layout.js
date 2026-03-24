@@ -2,6 +2,7 @@ import "./globals.css";
 import I18nProvider from "@/components/i18n-provider";
 import CookieConsent from "@/components/cookie-consent";
 import SiteFooter from "@/components/site-footer";
+import PageTransitionLoader from "@/components/page-transition-loader";
 import { buildMetadata, siteUrl } from "@/lib/seo";
 
 export const metadata = {
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <I18nProvider>
+          <PageTransitionLoader />
           {children}
           <SiteFooter />
           <CookieConsent />
