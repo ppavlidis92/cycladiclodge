@@ -1,0 +1,891 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px 56px;
+  background: #ffffff;
+}
+
+.heroFrame {
+  width: min(100%, 1920px);
+  min-height: 650px;
+  padding: 0 22px 18px;
+  margin-bottom: 40px;
+  background: #ffffff;
+}
+
+.subpageFrame {
+  width: min(100%, 1920px);
+  min-height: 100vh;
+  padding: 0 22px 18px;
+  background: #ffffff;
+}
+
+.contactFrame {
+  min-height: auto;
+  padding-bottom: 0;
+}
+
+.topBar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 10px 20px;
+}
+
+.logoBlock {
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.logoImage {
+  width: 300px;
+  height: 100px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 14px 34px;
+  padding-top: 40px;
+}
+
+.navLink {
+  position: relative;
+  font-family: Calibri, "Segoe UI", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: #b2b5bb;
+}
+
+.navLinkActive {
+  color: #000000;
+}
+
+.navLinkActive::after {
+  transform: scaleX(1) !important;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.navLink:hover::after,
+.navLink:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.languageSelectWrap {
+  position: relative;
+  display: inline-flex;
+  gap: 6px;
+  margin-left: 10px;
+}
+
+.languageSelectWrap::after {
+  content: "\25BE";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  font-size: 0.78rem;
+  color: #7d828a;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.languageSelect {
+  border: none;
+  background: transparent;
+  color: #12253f;
+  padding: 4px 24px 4px 12px;
+  min-width: 66px;
+  font-family: var(--font-display), serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-align-last: center;
+}
+
+.heroVisual {
+  position: relative;
+  height: 650px;
+  overflow: hidden;
+  background: #dfe6ef;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+}
+
+.heroShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 20, 37, 0.04) 0%, rgba(8, 20, 37, 0.08) 100%);
+}
+
+.subpageContent {
+  min-height: calc(100vh - 160px);
+  background: #ffffff;
+}
+
+.contactSection {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.65fr);
+  gap: 72px;
+  align-items: start;
+  padding: 24px 0 0;
+  margin-bottom: 0;
+  margin-bottom: 100px;
+}
+
+.contactMapWrap {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+}
+
+.contactMap {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.contactInfo {
+  padding-top: 32px;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #20242a;
+}
+
+.contactTitle {
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+
+.contactDetails {
+  margin-top: 42px;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.experienceSection {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  padding: 34px 0 10px;
+}
+
+.experienceBlock {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.experienceBlock + .experienceBlock {
+  margin-top: 54px;
+}
+
+.experienceGallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.experienceImageWrap {
+  position: relative;
+  aspect-ratio: 0.50;
+  overflow: hidden;
+}
+
+.experienceImage {
+  object-fit: cover;
+}
+
+.experienceCopy {
+  margin-left: 40px;
+  padding-top: 42px;
+  font-family: Georgia, serif;
+  color: #20242a;
+}
+
+.experienceTitle {
+  font-size: 1.18rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.experienceRule {
+  width: 72px;
+  height: 2px;
+  margin: 24px 0 28px;
+  background: #cccccc;
+}
+
+.experienceParagraphs {
+  font-family: Georgia, serif;
+  font-size: 1.03rem;
+  font-weight: 400;
+  line-height: 1.78;
+  color: #3f4349;
+}
+
+.experienceLine {
+  display: block;
+}
+
+.experienceParagraph + .experienceParagraph {
+  margin-top: 24px;
+}
+
+.staySection {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  padding: 42px 0 16px;
+}
+
+.stayIntro {
+  padding: 52px 0 44px;
+  text-align: center;
+  font-family: Calibri, "Segoe UI", sans-serif;
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: #11151d;
+}
+
+.stayDivider {
+  width: 100%;
+  height: 1px;
+  background: #d7d7d7;
+}
+
+.stayAmenities {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  padding: 44px 120px 46px;
+}
+
+.stayAmenityColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stayAmenityItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Calibri, "Segoe UI", sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: #324766;
+}
+
+.stayAmenityIcon {
+  width: 16px;
+  min-width: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 0.9rem;
+}
+
+.stayAmenityIconSvg,
+.stayAmenityIconImage {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.roomsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding: 34px 0 0;
+}
+
+.roomShowcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(220px, 0.75fr);
+  gap: 40px;
+  align-items: center;
+  padding-bottom: 36px;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.roomShowcase:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.roomCarouselShell {
+  position: relative;
+}
+
+.roomCarouselTrack {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.roomCarouselTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.roomCarouselDragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.roomCarouselCard {
+  position: relative;
+  flex: 0 0 calc((100% - 14px) / 2);
+  aspect-ratio: 0.82;
+  overflow: hidden;
+  scroll-snap-align: start;
+  user-select: none;
+}
+
+.roomCarouselImage {
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.roomCarouselArrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.roomCarouselArrowLeft {
+  left: -4px;
+}
+
+.roomCarouselArrowRight {
+  right: -4px;
+}
+
+.roomMeta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.roomTitle {
+  font-family: Calibri, "Segoe UI", sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #060606;
+}
+
+.roomFacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.roomFact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Calibri, "Segoe UI", sans-serif;
+  font-size: 0.98rem;
+  color: #324766;
+}
+
+.roomFactIcon {
+  width: 16px;
+  height: 16px;
+  color: #000000;
+}
+
+.storySection {
+  width: min(100%, 1180px);
+  padding: 26px 0 12px;
+}
+
+.storyIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(180px, 0.55fr);
+  gap: 44px;
+  align-items: center;
+}
+
+.storyCopy {
+  font-family: Calibri, "Segoe UI", sans-serif;
+  color: #20242a;
+  font-size: 1.1rem;
+  line-height: 1.72;
+}
+
+.storyCopy p + p {
+  margin-top: 2px;
+}
+
+.storyParagraphGap {
+  margin-top: 24px !important;
+}
+
+.storyMarkWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.storyMark {
+  width: 216px;
+  height: auto;
+  opacity: 0.28;
+  filter: grayscale(1) brightness(0.7);
+}
+
+.storyDivider {
+  width: 100%;
+  height: 1px;
+  margin: 38px 0;
+  background: #d8d8d8;
+}
+
+.storyColumns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 72px;
+}
+
+.storyColumn {
+  font-family: Calibri, "Segoe UI", sans-serif;
+  color: #20242a;
+}
+
+.storyColumnTitle {
+  font-size: 1.14rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+}
+
+.storyColumnRule {
+  width: 72px;
+  height: 1px;
+  margin: 32px 0 34px;
+  background: #cfcfcf;
+}
+
+.storyColumnCopy {
+  font-size: 1.06rem;
+  line-height: 1.72;
+}
+
+.storyColumnCopy p + p {
+  margin-top: 2px;
+}
+
+.carouselSection {
+  width: min(100%, 1920px);
+  padding: 4px 80px 8px;
+  background: #ffffff;
+}
+
+.carouselShell {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.carouselTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.carouselDragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.carouselCard {
+  position: relative;
+  flex: 0 0 calc((100% - 32px) / 3);
+  aspect-ratio: 0.72;
+  overflow: hidden;
+  scroll-snap-align: start;
+  user-select: none;
+}
+
+.carouselCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(70, 70, 70, 0);
+  transition: background 220ms ease;
+  pointer-events: none;
+}
+
+.carouselCard:hover::after {
+  background: rgba(70, 70, 70, 0.24);
+}
+
+.carouselImage {
+  object-fit: cover;
+  pointer-events: none;
+  transition: transform 220ms ease;
+}
+
+.carouselCard:hover .carouselImage {
+  transform: scale(1.1);
+}
+
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(47, 47, 47, 0.86);
+  font-size: 2.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.carouselArrowLeft {
+  left: 18px;
+}
+
+.carouselArrowRight {
+  right: 18px;
+}
+
+.awardCard {
+  position: absolute;
+  right: clamp(18px, 4vw, 78px);
+  bottom: clamp(18px, 4vw, 56px);
+  width: min(272px, calc(100% - 40px));
+  padding: 22px;
+  background: linear-gradient(180deg, rgba(19, 71, 150, 0.96) 0%, rgba(16, 61, 131, 0.98) 100%);
+  color: #ffffff;
+  box-shadow: 0 18px 50px rgba(10, 40, 86, 0.28);
+}
+
+.awardCaption {
+  display: block;
+  font-size: 0.76rem;
+  opacity: 0.82;
+}
+
+.awardTitle {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.85rem;
+  line-height: 1.1;
+}
+
+.awardFooter {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 54px;
+}
+
+.awardBrand {
+  display: block;
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+
+.awardMeta {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.74rem;
+  opacity: 0.86;
+}
+
+.awardScore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 58px;
+  min-height: 58px;
+  border-radius: 12px;
+  background: #1980ff;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .topBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 820px) {
+  .page {
+    padding: 14px;
+  }
+
+  .heroFrame,
+  .subpageFrame {
+    padding: 0 14px 14px;
+  }
+
+  .storySection {
+    width: 100%;
+    padding: 24px 14px 12px;
+  }
+
+  .contactSection {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 24px 14px 10px;
+  }
+
+  .contactInfo {
+    padding-top: 0;
+  }
+
+  .experienceSection {
+    width: 100%;
+    padding: 24px 14px 10px;
+  }
+
+  .experienceBlock {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .experienceCopy {
+    padding-top: 0;
+  }
+
+  .stayAmenities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 34px 32px 36px;
+  }
+
+  .roomShowcase {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .roomMeta {
+    gap: 14px;
+  }
+
+  .storyIntro {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .storyMarkWrap {
+    justify-content: flex-start;
+  }
+
+  .storyColumns {
+    gap: 28px;
+  }
+
+  .carouselSection {
+    padding: 18px 46px 8px;
+  }
+
+  .logoImage {
+    width: 220px;
+    height: auto;
+  }
+
+  .heroVisual {
+    height: 560px;
+  }
+}
+
+@media (max-width: 640px) {
+  .topBar {
+    gap: 18px;
+    padding: 0 4px 18px;
+  }
+
+  .logoImage {
+    width: 180px;
+  }
+
+  .nav {
+    gap: 10px 18px;
+  }
+
+  .navLink {
+    font-size: 1rem;
+  }
+
+  .carouselSection {
+    padding: 18px 14px 0;
+  }
+
+  .contactMapWrap {
+    height: 320px;
+  }
+
+  .contactDetails {
+    margin-top: 24px;
+  }
+
+  .experienceGallery {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .experienceImageWrap {
+    aspect-ratio: 0.78;
+  }
+
+  .experienceBlock + .experienceBlock {
+    margin-top: 36px;
+  }
+
+  .stayIntro {
+    padding: 36px 10px 30px;
+    font-size: 1rem;
+  }
+
+  .stayAmenities {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 28px 14px 30px;
+  }
+
+  .roomsSection {
+    gap: 28px;
+    padding-top: 28px;
+  }
+
+  .roomCarouselCard {
+    flex-basis: 82%;
+  }
+
+  .roomTitle {
+    font-size: 1.6rem;
+  }
+
+  .roomFacts {
+    gap: 14px;
+  }
+
+  .storySection {
+    padding: 18px 14px 6px;
+  }
+
+  .storyCopy {
+    font-size: 1rem;
+  }
+
+  .storyColumns {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .storyDivider {
+    margin: 28px 0;
+  }
+
+  .carouselCard {
+    flex-basis: calc((100% - 16px) / 2.2);
+    aspect-ratio: 0.92;
+  }
+
+  .carouselArrow {
+    width: 52px;
+    height: 52px;
+    font-size: 2.2rem;
+  }
+
+  .carouselArrowLeft {
+    left: -2px;
+  }
+
+  .carouselArrowRight {
+    right: -2px;
+  }
+
+  .languageSelectWrap {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .heroVisual {
+    height: 520px;
+  }
+
+  .subpageContent {
+    min-height: 560px;
+  }
+
+  .carouselCard {
+    flex-basis: 78%;
+    aspect-ratio: 1.02;
+  }
+
+  .awardCard {
+    width: calc(100% - 28px);
+    padding: 18px;
+  }
+
+  .awardTitle {
+    font-size: 1.45rem;
+  }
+}

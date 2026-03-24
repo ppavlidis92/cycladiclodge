@@ -1,0 +1,142 @@
+.wrapper {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 50;
+  width: min(420px, calc(100vw - 32px));
+}
+
+.panel {
+  border: 1px solid rgba(18, 37, 63, 0.1);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 48px rgba(16, 31, 58, 0.14);
+  backdrop-filter: blur(16px);
+  padding: 22px 22px 20px;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #8c95a3;
+}
+
+.title {
+  margin-top: 10px;
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0b1422;
+}
+
+.copy {
+  margin-top: 10px;
+  color: #5d6777;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.settings {
+  margin-top: 18px;
+  border-top: 1px solid rgba(18, 37, 63, 0.08);
+  padding-top: 16px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 0;
+}
+
+.option + .option {
+  border-top: 1px solid rgba(18, 37, 63, 0.06);
+}
+
+.optionTitle {
+  display: block;
+  font-family: var(--font-display), sans-serif;
+  font-size: 1rem;
+  color: #0b1422;
+}
+
+.optionCopy {
+  display: block;
+  margin-top: 4px;
+  color: #788396;
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.switch {
+  min-width: 58px;
+  padding: 9px 12px;
+  border: 1px solid rgba(18, 37, 63, 0.12);
+  background: #ffffff;
+  color: #445065;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.switchOn {
+  background: #123f7e;
+  border-color: #123f7e;
+  color: #ffffff;
+}
+
+.switchLocked {
+  background: #eef1f5;
+  color: #6c7687;
+  cursor: default;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 11px 16px;
+  border: 1px solid transparent;
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.primaryButton {
+  background: #0f2748;
+  color: #ffffff;
+}
+
+.secondaryButton {
+  background: transparent;
+  border-color: rgba(18, 37, 63, 0.12);
+  color: #0f2748;
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    width: auto;
+  }
+
+  .panel {
+    padding: 18px 18px 16px;
+  }
+
+  .option {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}
