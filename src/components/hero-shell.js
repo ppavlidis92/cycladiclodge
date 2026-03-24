@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ImageCarousel from "@/components/image-carousel";
+import EuBannerSection from "@/components/eu-banner-section";
 import SiteHeader from "@/components/site-header";
 import StorySection from "@/components/story-section";
 import StructuredData from "@/components/structured-data";
@@ -57,6 +58,7 @@ export default function HeroShell() {
 
       <StorySection />
       <ImageCarousel />
+      <EuBannerSection />
     </main>
   );
 }

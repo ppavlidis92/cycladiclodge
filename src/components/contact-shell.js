@@ -1,9 +1,15 @@
+"use client";
+
+import { useTranslation } from "react-i18next";
 import SiteHeader from "@/components/site-header";
 import StructuredData from "@/components/structured-data";
+import { getGoogleMapEmbedUrl } from "@/lib/maps";
 import { siteUrl } from "@/lib/seo";
 import styles from "@/app/page.module.css";
 
 export default function ContactShell() {
+  const { t, i18n } = useTranslation();
+
   const data = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
@@ -33,8 +39,8 @@ export default function ContactShell() {
         <section className={styles.contactSection}>
           <div className={styles.contactMapWrap}>
             <iframe
-              title="Cycladic Lodge Sifnos contact map"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3187.875360328871!2d24.7193059!3d36.9650335!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1498f35fd5ec2a7b%3A0x8596d9af3bea712c!2sCycladic%20Lodge%20Sifnos!5e0!3m2!1sen!2sgr!4v1774348870688!5m2!1sen!2sgr"
+              title={t("contact.mapTitle")}
+              src={getGoogleMapEmbedUrl(i18n.language)}
               className={styles.contactMap}
               allowFullScreen
               loading="lazy"
@@ -43,9 +49,9 @@ export default function ContactShell() {
           </div>
 
           <div className={styles.contactInfo}>
-            <h1 className={styles.contactTitle}>Contact info</h1>
+            <h1 className={styles.contactTitle}>{t("contact.title")}</h1>
             <div className={styles.contactDetails}>
-              <p>Katavati, Sifnos 84003, Greece</p>
+              <p>{t("contact.address")}</p>
               <p>+302284032170</p>
               <p>info@cycladiclodge.gr</p>
             </div>

@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useTranslation } from "react-i18next";
+import { getGoogleMapEmbedUrl } from "@/lib/maps";
 import styles from "@/components/site-footer.module.css";
 
 export default function SiteFooter() {
   const pathname = usePathname();
+  const { t, i18n } = useTranslation();
   const isContactPage = pathname === "/get-in-touch";
 
   return (
@@ -24,11 +27,11 @@ export default function SiteFooter() {
         </div>
 
         <div className={styles.infoColumn}>
-          <p>Katavati, Apollonia</p>
-          <p>Sifnos 84003, Greece</p>
-          <p>Tel: +30 22840 32170</p>
+          <p>{t("footer.addressLineOne")}</p>
+          <p>{t("footer.addressLineTwo")}</p>
+          <p>{t("footer.phone")}</p>
           <p>
-            Email:{" "}
+            {t("footer.email")}{" "}
             <a href="mailto:info@cycladiclodge.gr" className={styles.inlineLink}>
               info@cycladiclodge.gr
             </a>
@@ -38,8 +41,8 @@ export default function SiteFooter() {
         <div className={styles.mapColumn}>
           <div className={styles.mapFrame}>
             <iframe
-              title="Cycladic Lodge Sifnos map"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3187.875360328871!2d24.7193059!3d36.9650335!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1498f35fd5ec2a7b%3A0x8596d9af3bea712c!2sCycladic%20Lodge%20Sifnos!5e0!3m2!1sen!2sgr!4v1774348870688!5m2!1sen!2sgr"
+              title={t("footer.mapTitle")}
+              src={getGoogleMapEmbedUrl(i18n.language)}
               className={styles.map}
               allowFullScreen
               loading="lazy"
@@ -50,7 +53,7 @@ export default function SiteFooter() {
       </div>
 
       <div className={styles.bottomBar}>
-        <p>All rights reserved © Cycladic Lodge 2024</p>
+        <p>{t("footer.copyright")}</p>
         <button
           type="button"
           className={styles.cookieButton}
@@ -58,7 +61,7 @@ export default function SiteFooter() {
             window.dispatchEvent(new CustomEvent("cycladic-open-cookie-settings"))
           }
         >
-          Cookie Settings
+          {t("footer.cookieSettings")}
         </button>
       </div>
     </footer>

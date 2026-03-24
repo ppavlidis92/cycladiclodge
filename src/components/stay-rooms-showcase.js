@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import {
   RulerIcon,
   User01Icon,
@@ -11,7 +12,7 @@ import styles from "@/app/page.module.css";
 
 const rooms = [
   {
-    name: "VATHY",
+    id: "vathy",
     size: "20 S.q.m",
     guests: "2 Adults",
     images: [
@@ -28,7 +29,7 @@ const rooms = [
     ],
   },
   {
-    name: "FYKIADA",
+    id: "fykiada",
     size: "20 S.q.m",
     guests: "2 Adults",
     images: [
@@ -45,7 +46,7 @@ const rooms = [
     ],
   },
   {
-    name: "VROULIDIA",
+    id: "vroulidia",
     size: "18 S.q.m",
     guests: "2 Adults",
     images: [
@@ -62,7 +63,7 @@ const rooms = [
     ],
   },
   {
-    name: "FASOLOU",
+    id: "fasolou",
     size: "16 S.q.m",
     guests: "2 Adults",
     images: [
@@ -81,6 +82,7 @@ const rooms = [
 ];
 
 function RoomCarousel({ room }) {
+  const { t } = useTranslation();
   const trackRef = useRef(null);
   const dragStateRef = useRef({
     active: false,
@@ -210,7 +212,7 @@ function RoomCarousel({ room }) {
           type="button"
           className={`${styles.roomCarouselArrow} ${styles.roomCarouselArrowLeft}`}
           onClick={() => scrollByCards(-1)}
-          aria-label={`Previous ${room.name} images`}
+          aria-label={t("stay.labels.previousImages", { room: room.name })}
         >
           {"\u2039"}
         </button>
@@ -232,7 +234,7 @@ function RoomCarousel({ room }) {
             >
               <Image
                 src={image}
-                alt={`${room.name} room image ${index + 1}`}
+                alt={t("stay.labels.roomImage", { room: room.name, index: index + 1 })}
                 fill
                 sizes="(max-width: 820px) 90vw, 28vw"
                 className={styles.roomCarouselImage}
@@ -245,7 +247,7 @@ function RoomCarousel({ room }) {
           type="button"
           className={`${styles.roomCarouselArrow} ${styles.roomCarouselArrowRight}`}
           onClick={() => scrollByCards(1)}
-          aria-label={`Next ${room.name} images`}
+          aria-label={t("stay.labels.nextImages", { room: room.name })}
         >
           {"\u203A"}
         </button>
@@ -269,11 +271,24 @@ function RoomCarousel({ room }) {
 }
 
 export default function StayRoomsShowcase() {
+  const { t } = useTranslation();
+  const roomTranslations = t("stay.rooms", { returnObjects: true });
+  const localizedRooms = rooms.map((room) => {
+    const translated = roomTranslations.find((entry) => entry.id === room.id);
+
+    return {
+      ...room,
+      name: translated?.name ?? room.id,
+      size: translated?.size ?? room.size,
+      guests: translated?.guests ?? room.guests,
+    };
+  });
+
   const data = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Cycladic Lodge room types",
-    itemListElement: rooms.map((room, index) => ({
+    name: t("stay.labels.roomTypes"),
+    itemListElement: localizedRooms.map((room, index) => ({
       "@type": "ListItem",
       position: index + 1,
       item: {
@@ -296,8 +311,8 @@ export default function StayRoomsShowcase() {
   return (
     <section className={styles.roomsSection}>
       <StructuredData data={data} />
-      {rooms.map((room) => (
-        <RoomCarousel key={room.name} room={room} />
+      {localizedRooms.map((room) => (
+        <RoomCarousel key={room.id} room={room} />
       ))}
     </section>
   );
