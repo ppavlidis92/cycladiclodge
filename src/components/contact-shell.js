@@ -1,9 +1,9 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
+import GoogleMapEmbed from "@/components/google-map-embed";
 import SiteHeader from "@/components/site-header";
 import StructuredData from "@/components/structured-data";
-import { getGoogleMapEmbedUrl } from "@/lib/maps";
 import { siteUrl } from "@/lib/seo";
 import styles from "@/app/page.module.css";
 
@@ -37,16 +37,13 @@ export default function ContactShell() {
         <SiteHeader />
 
         <section className={styles.contactSection}>
-          <div className={styles.contactMapWrap}>
-            <iframe
-              title={t("contact.mapTitle")}
-              src={getGoogleMapEmbedUrl(i18n.language)}
-              className={styles.contactMap}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
+          <GoogleMapEmbed
+            title={t("contact.mapTitle")}
+            language={i18n.language}
+            className={styles.contactMapWrap}
+            iframeClassName={styles.contactMap}
+            pinLinkClassName={styles.contactMapPinLink}
+          />
 
           <div className={styles.contactInfo}>
             <h1 className={styles.contactTitle}>{t("contact.title")}</h1>

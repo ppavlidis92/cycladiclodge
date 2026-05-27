@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import { getGoogleMapEmbedUrl } from "@/lib/maps";
+import GoogleMapEmbed from "@/components/google-map-embed";
 import styles from "@/components/site-footer.module.css";
 
 export default function SiteFooter() {
@@ -39,16 +39,13 @@ export default function SiteFooter() {
         </div>
 
         <div className={styles.mapColumn}>
-          <div className={styles.mapFrame}>
-            <iframe
-              title={t("footer.mapTitle")}
-              src={getGoogleMapEmbedUrl(i18n.language)}
-              className={styles.map}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
+          <GoogleMapEmbed
+            title={t("footer.mapTitle")}
+            language={i18n.language}
+            className={styles.mapFrame}
+            iframeClassName={styles.map}
+            pinLinkClassName={styles.mapPinLink}
+          />
         </div>
       </div>
 
